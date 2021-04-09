@@ -1,0 +1,30 @@
+{% extends "htmls/mainmenu.html" %}
+{% load static %}
+{% block album %}
+{% for squirrel in squirrels %}
+<div class="col">
+    <div class="card shadow-sm">
+      <img class="bd-placeholder-img card-img-top" width="100%" height="225" 
+      role="img" aria-label="{{ squirrel.Unique_Squirrel_ID }}"
+      preserveAspectRatio="xMidYMid slice" focusable="false" 
+      src="{% get_media_prefix %}{{ squirrel.profile_image }}"></img>
+
+      <div class="card-body">
+        <p class="card-text">Location: {{ squirrel.location }}<br>
+          Age: {{squirrel.age}}<br>Color: {{ squirrel.primary_fur_color }}<br>Activities: {{ activities|random|cut:"["|cut:"'" }}</p>
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="btn-group">
+
+            <!--button type="button" class="btn btn-sm btn-outline-secondary" 
+            onclick = "window.location.href='/sightings/{{ squirrel.Unique_Squirrel_ID }}'">View</button-->
+            <button type="button" class="btn btn-sm btn-outline-secondary" 
+            onclick = "window.location.href='/sightings/{{ squirrel.Unique_Squirrel_ID }}'">Edit</button>
+          
+          </div>
+          <small class="text-muted">{{ squirrel.Unique_Squirrel_ID }}</small>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+  {% endblock %}
