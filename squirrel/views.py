@@ -20,3 +20,20 @@ def map(request):
     return render(request,'htmls/map.html', context)
     
 
+def mainmenu(request):
+    squirrels = biaoge.objects.filter(have_image = True)
+    activities = ['Running', 'Chasing', 'Climbing', 'Eating', 'Foraging', 'Kuks', 'Quaas', 'Moans', 'Other activities','Approaches','Tail Twitches','Runs from','Nothing']
+    context ={'squirrels':squirrels,
+              'activities': activities,
+              'img1':'img1.PNG',
+              'img2':'img2.PNG',
+              'img3':'img3.JPG',
+              'img4':'img4.PNG',
+    }
+    return render(request,'htmls/mainbase.html',context)
+
+
+    def sightings(request):
+    squirrels = biaoge.objects.order_by('Unique_Squirrel_ID')
+    context = {'squirrels':squirrels,}
+    return render(request,'htmls/sightings.html',context)
