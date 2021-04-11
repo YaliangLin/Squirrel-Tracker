@@ -1,5 +1,5 @@
 from django.contrib import admin
 
-from .models import chart
+from .models import biaoge
 
-admin.site.register(chart)
+admin.site.register(biaoge)
