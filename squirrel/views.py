@@ -162,11 +162,11 @@ def stats(request):
     chasing_num = sightings_all.filter(chasing=True).count()
     running_num = sightings_all.filter(running=True).count()
     total_movements = foraging_num + eating_num + climbing_num + chasing_num + running_num
-    foraging_prop = "{:.2%}".format(foraging_num / total_movements)
-    eating_prop = "{:.2%}".format(eating_num / total_movements)
-    chasing_prop = "{:.2%}".format(chasing_num / total_movements)
-    running_prop = "{:.2%}".format(running_num / total_movements)
-    climbing_prop = "{:.2%}".format(climbing_num / total_movements)
+    foraging_prop = "{:.2%}".format(foraging_num / sightings_all.count())
+    eating_prop = "{:.2%}".format(eating_num / sightings_all.count())
+    chasing_prop = "{:.2%}".format(chasing_num / sightings_all.count())
+    running_prop = "{:.2%}".format(running_num / sightings_all.count())
+    climbing_prop = "{:.2%}".format(climbing_num / sightings_all.count())
 
     AM_num = sightings_all.filter(shift = 'AM').count()
     PM_num = sightings_all.filter(shift = 'PM').count()
@@ -184,6 +184,7 @@ def stats(request):
     climbing_num = sightings_all.filter(climbing = True).count()
     chasing_num = sightings_all.filter(chasing = True).count()
     running_num = sightings_all.filter(running = True).count()
+    others_num = sightings_all.count() - total_movements
 
     context = {
             'Total':sightings_all.count(),
@@ -195,11 +196,10 @@ def stats(request):
             'Age_pct': {'Juvenile': Juv_prop, 'Adult': Adu_prop},
             'Primary_Fur_Color': {'Black':Black_num, 'Gray':Gray_num, 'Cinnamon':Cinnamon_num},
             'Primary_Fur_Color_pct': {'Black':Black_prop, 'Gray':Gray_prop, 'Cinnamon':Cinnamon_prop},
-            #'Activities':{'foraging':foraging_num, 'eating':eating_num, 'climbing': climbing_num},
-            #'Activities_pct': {'foraging':foraging_prop, 'eating':eating_prop, 'climbing': climbing_prop},
+            'Activities':{'foraging':foraging_num, 'eating':eating_num, 'climbing': climbing_num, 'chasing': chasing_num, 'running': running_num},
+            'Activities_pct': {'foraging':foraging_prop, 'eating':eating_prop, 'climbing': climbing_prop, 'chasing': chasing_prop, 'running': running_prop},
             'Location': {'Above_Ground':Above_Ground_num, 'Ground_Plane':Ground_Plane_num},
             'Location_pct': {'Above_Ground':Above_Ground_prop, 'Ground_Plane':Ground_Plane_prop},
             }
 
     return render(request, 'htmls/stats.html', {'context':context})
-
