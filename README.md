@@ -13,19 +13,29 @@ Export: A command that can be used to export the data in CSV format.
 ### Views
 #### View sightings on a map
 It shows a map that displays the location of the squirrel sightings on an OpenStreets map.
-```It is located at: /map```
+```
+It is located at: /map
+```
 #### View all sightings
 It lists all squirrel sightings with links to view each sighting.
-```It is located at: /sightings```
+```
+It is located at: /sightings
+```
 #### Update a particular sighting
 It allows users to update a particular sighting.
-```It is located at: /sightings/<unique-squirrel-id>```
+```
+It is located at: /sightings/<unique-squirrel-id>
+```
 #### Create a new sighting
 It allows users to create a new sighting.
-```It is located at: /sightings/add```
+```
+It is located at: /sightings/add
+```
 #### View general statistics
 It shows general stats about the sightings. We also visualized the stats in this page.
-```It is located at /sightings/stats```
+```
+It is located at /sightings/stats
+```
 ## Server Link
 We used nginx-uwsgi-django to build the web:
 http://squirrels.icu
