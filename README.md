@@ -8,7 +8,7 @@ Group49：Yaliang Lin, Miaoran Lei
 yl4597, ml4554
 ## Main Features
 ### Management commands
-Import: A command that can be used to import the data from the 2018 census file.
+Import: A command that can be used to import the data from the 2018 census file.   
 Export: A command that can be used to export the data in CSV format.
 ### Views
 #### View sightings on a map
