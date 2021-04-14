@@ -203,3 +203,4 @@ def stats(request):
             }
 
     return render(request, 'htmls/stats.html', {'context':context})
+
