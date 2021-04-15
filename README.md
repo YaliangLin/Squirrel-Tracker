@@ -6,8 +6,6 @@ This is the final project of the course E4501 Tools for Analytics. In order to k
 Project Group 49, Section 1
 ## UNIs
 UNIs: [yl4597, ml4554] 
-## Server Link
-We use nginx-uwsgi-django to build the web. The link is: http://squirrels.icu
 ## Main Features
 [This video](https://b23.tv/3z3KC9) shows the main features of this project. Specific main features are also listed below:
 ### Management Commands
@@ -19,29 +17,30 @@ Export: A command that can be used to export the data in CSV format.
 ```
 python manage.py export /path/to/output.csv
 ```
-### Home Page
+### [Home Page](http://squirrels.icu/)
 It uses the image carousel for switching different pages. Several specific squirrel sightings are also shown in the home page as examples.   
 
 ![Gif of Home Page](https://github.com/Miaoran-Lei/Squirrel-Tracker/blob/master/media/img/Completed_Home_Page.gif)
 ### Views
-#### View sightings on a map
+#### [View sightings on a map](http://squirrels.icu/map/)
 It shows a map that displays the location of the squirrel sightings on an OpenStreets map. It is located at: `/map`   
    
 ![Picture of Map](https://github.com/Miaoran-Lei/Squirrel-Tracker/blob/master/media/img/Completed_Map.PNG)
-#### View all sightings
+#### [View all sightings](http://squirrels.icu/sightings/)
 It lists all squirrel sightings with links to view each sighting. It is located at: `/sightings`   
    
 ![Picture of Sightings](https://github.com/Miaoran-Lei/Squirrel-Tracker/blob/master/media/img/Completed_Sightings.PNG)
-#### Update a particular sighting
+#### [Update a particular sighting](http://squirrels.icu/sightings/)
 It allows users to update a particular sighting. It is located at: `/sightings/<unique-squirrel-id>`    
      
 ![Picture of Update](https://github.com/Miaoran-Lei/Squirrel-Tracker/blob/master/media/img/Completed_Update.PNG)
-#### Create a new sighting
+#### [Create a new sighting](http://squirrels.icu/sightings/add/)
 It allows users to create a new sighting. It is located at: `/sightings/add`    
    
 ![Picture of Add](https://github.com/Miaoran-Lei/Squirrel-Tracker/blob/master/media/img/Completed_Add.PNG)
-#### View general statistics
+#### [View general statistics](http://squirrels.icu/sightings/stats/)
 It shows general statistics of six attributes about the sightings. The statistics are visualized in this page. It is located at: `/sightings/stats`    
    
 ![Picture of Stats](https://github.com/Miaoran-Lei/Squirrel-Tracker/blob/master/media/img/Completed_Stats.PNG)
-
+## Server Link
+We use nginx-uwsgi-django to build the web. The link is: http://squirrels.icu
