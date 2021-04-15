@@ -1,0 +1,466 @@
+{% load static %}
+{% csrf_token %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.80.0">
+    <title>Edit a Squirrel!</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/checkout/">
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+
+    <!-- Bootstrap core CSS -->
+
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+
+<header>
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">CuteSquirrel</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/map">Map</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="/sightings/add">Add</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/sightings">Sightings</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/sightings/stats">Stats</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin" tabindex="-1" aria-disabled="true">Admin</a>
+          </li>
+        </ul>
+        <form method="get" action="/search/" class="d-flex">
+          <input class="form-control me-2" type="search" name="search" placeholder="Type Squirrel ID" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'form-validation.css' %}" rel="stylesheet">
+  </head>
+  <body class="bg-light">
+    <div><p><br></p></div>
+<div class="container">
+  <main>
+    <div class="py-5 text-center">
+      <img class="d-block mx-auto mb-4" src="{% get_media_prefix %}{{ sssss }}" alt="" width="85" height="70"></img>
+      <h2>Status Page</h2>
+      <p class="lead">    View or edit your squirrel by entering the following texts</p>
+    </div>
+
+    <hr />
+
+      <div class="col-md-7 col-lg-8">
+        <h4 class="mb-3">Add your squirrels</h4>
+        <form class="needs-validation" novalidate method='POST' enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="row g-3">
+            <div class="col-sm-6">
+              <label for="latitude" class="form-label">Latitude</label>
+              <input type="text" class="form-control" id="latitude" placeholder="" value="{{ squirrels.xx }}" name = "latitude" required pattern="^[-+]?[0-9]*\.?[0-9]+$">
+              <div class="invalid-feedback">
+                Latitude should be vaild numbers.
+              </div>
+            </div>
+
+            <div class="col-sm-6">
+              <label for="longtitude" class="form-label">Longtitude</label>
+              <input type="text" class="form-control" id="longtitude" placeholder="" value="{{ squirrels.yy }}" name = "longtitude" required pattern="^[-+]?[0-9]*\.?[0-9]+$">
+              <div class="invalid-feedback">
+                Longtitude should be vaild numbers.
+              </div>
+            </div>
+
+            <div class="col-12">
+              <label for="Unique_Squirrel_ID" class="form-label">Unique Squirrel ID</label>
+              <div class="input-group has-validation">
+                <input type="text" class="form-control" id="Unique_Squirrel_ID" placeholder="1A-BC-2345-06" name = "Unique_Squirrel_ID" 
+                value = "{{ squirrels.Unique_Squirrel_ID }}"
+                required>
+              <div class="invalid-feedback">
+                Unique_Squirrel_ID is not correct.<span>(example: 1A-BC-2345-06)</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12">
+              <label for="specific_location" class="form-label">Specific Location <span class="text-muted">(Optional)</span></label>
+              <input type="text" class="form-control" id="specific_location" placeholder="grass? water?" name = "specific_location" value="{{squirrels.specific_location}}">
+              <div class="invalid-feedback">
+                Specific location is required.
+              </div>
+            </div>
+
+            <div class="col-12">
+              <label for="date" class="form-label">Date </label>
+              <input type="date" id="date" class="form-control" placeholder="yyyy-mm-dd" name = "date" value= "{{ squirrels.date |date:'Y-m-d'}}" required>
+              <div class="invalid-feedback">
+                Please enter date in right required forms.(example: yyyy-mm-dd).
+              </div>
+            </div>
+
+            <div class="col-12">
+              <label for="other_activities" class="form-label">Other Activities<span class="text-muted">(Optional)</span></label>
+              <input type="text" class="form-control" id="other_activities" placeholder="Apartment or suite" name="other_activities"
+              value = "{{ squirrels.other_activities }}">
+            </div>
+            
+            {% if squirrel.primary_fur_color == Gray %}
+            <div class="col-md-4">
+              <label for="country" class="form-label">Primary Fur Color</label>
+              <select class="form-select" id="country" name= "primary_fur_color" value= "{{ squirrels.primary_fur_color }}"required >
+                <option value="">Choose...</option>
+                <option value="Gray" selected >Gray</option>
+                <option value="Cinnamon">Cinnamon</option>
+                <option value="Black">Black</option>
+              </select>
+              <div class="invalid-feedback">
+                Please select a valid shift.
+              </div>
+            </div>
+            {%else%}
+            <div class="col-md-4">
+              <label for="country" class="form-label">Primary Fur Color</label>
+              <select class="form-select" id="country" name= "primary_fur_color" value= "{{ squirrels.primary_fur_color }}"required >
+                <option value="">Choose...</option>
+                <option value="Gray" >Gray</option>
+                <option value="Cinnamon"selected>Cinnamon</option>
+                <option value="Black">Black</option>
+              </select>
+              <div class="invalid-feedback">
+                Please select a valid shift.
+              </div>
+            </div>
+            {% endif %}
+
+            {% if squirrel.location == "Above Ground" %}
+            <div class="col-md-3">
+              <label for="country" class="form-label">Location</label>
+              <select class="form-select" id="country" name="location" value="{{squirrels.location}}" required>
+                <option value="">Choose...</option>
+                <option value="Ground Plane">Ground Plane</option>
+                <option value="Above Ground" selected>Above Ground</option>
+              </select>
+              <div class="invalid-feedback">
+                Please select a valid shift.
+              </div>
+            </div>
+             {% else %}
+             <div class="col-md-3">
+              <label for="country" class="form-label">Location</label>
+              <select class="form-select" id="country" name="location" value="{{squirrels.location}}" required>
+                <option value="">Choose...</option>
+                <option value="Ground Plane"selected>Ground Plane</option>
+                <option value="Above Ground" >Above Ground</option>
+              </select>
+              <div class="invalid-feedback">
+                Please select a valid shift.
+              </div>
+            </div>
+             {% endif %}
+
+          <hr class="my-4">
+
+          {% if squirrels.running == True %}
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="same-address" name="running" value={{squirrels.running}} checked>
+            <label class="form-check-label" for="same-address">running</label>
+          </div>
+          {%else%}
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="same-address" name="running" value={{squirrels.running}}>
+            <label class="form-check-label" for="same-address">running</label>
+          </div>
+          {%endif%}
+
+          {% if squirrels.chasing == True %}
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="save-info" name="chasing" value={{squirrels.chasing}} checked>
+            <label class="form-check-label" for="save-info">chasing</label>
+          </div>
+          {%else%}
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="save-info" name="chasing" value={{squirrels.chasing}}>
+            <label class="form-check-label" for="save-info">chasing</label>
+          </div>
+          {%endif%}
+
+          {% if squirrels.climbing == True %}
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="same-address" name="climbing" value={{squirrels.climbing}} checked>
+            <label class="form-check-label" for="same-address">climbing</label>
+          </div>
+          {%else%}
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="same-address" name="climbing" value={{squirrels.climbing}}>
+            <label class="form-check-label" for="same-address">climbing</label>
+          </div>
+          {%endif%}
+
+          {% if squirrels.eating == True %}
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="same-address" name="eating" value={{squirrels.eating}} checked>
+            <label class="form-check-label" for="same-address">eating</label>
+          </div>
+          {%else%}
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="same-address" name="eating" value={{squirrels.eating}}>
+            <label class="form-check-label" for="same-address">eating</label>
+          </div>
+          {%endif%}
+
+          {% if squirrels.foraging == True %}
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="same-address" name="foraging" value={{squirrels.foraging}} checked>
+            <label class="form-check-label" for="same-address">foraging</label>
+          </div>
+          {%else%}
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="same-address" name="foraging" value={{squirrels.foraging}}>
+            <label class="form-check-label" for="same-address">foraging</label>
+          </div>
+          {%endif%}
+
+          {% if squirrels.kuks == True %}
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="same-address" name="kuks" value={{squirrels.kuks}} checked> 
+            <label class="form-check-label" for="same-address">kuks</label>
+          </div>
+          {%else%}
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="same-address" name="kuks" value={{squirrels.kuks}}>
+            <label class="form-check-label" for="same-address">kuks</label>
+          </div>
+          {%endif%}
+
+          {% if squirrels.quaas == True %}
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="same-address" name="quaas" value={{squirrels.quaas}} checked>
+            <label class="form-check-label" for="same-address">quaas</label>
+          </div>
+          {%else%}
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="same-address" name="quaas" value={{squirrels.quaas}}>
+            <label class="form-check-label" for="same-address">quaas</label>
+          </div>
+          {%endif%}
+
+          {% if squirrels.tail_flags == True %}
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="same-address" name="tail_flags" value={{squirrels.tail_flags}} checked>
+            <label class="form-check-label" for="same-address">tail flags</label>
+          </div>
+          {%else%}
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="same-address" name="tail_flags" value={{squirrels.tail_flags}}>
+            <label class="form-check-label" for="same-address">tail flags</label>
+          </div>
+          {%endif%}
+
+          {% if squirrels.tail_twitches == True %}
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="same-address" name="tail_twitches" value={{squirrels.tail_twitches}} checked>
+            <label class="form-check-label" for="same-address">tail twitches</label>
+          </div>
+          {%else%}
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="same-address" name="tail_twitches" value={{squirrels.tail_twitches}}>
+            <label class="form-check-label" for="same-address">tail twitches</label>
+          </div>
+          {%endif%}
+
+          {% if squirrels.approaches == True %}
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="same-address" name="approaches" value={{squirrels.approaches}} checked>
+            <label class="form-check-label" for="same-address">approaches</label>
+          </div>
+          {%else%}
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="same-address" name="approaches" value={{squirrels.approaches}}>
+            <label class="form-check-label" for="same-address">approaches</label>
+          </div>
+          {%endif%}         
+
+          {% if squirrels.indifferent == True %}
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="same-address" name="indifferent" value={{squirrels.indifferent}} checked>
+            <label class="form-check-label" for="same-address">indifferent</label>
+          </div>
+          {%else%}
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="same-address" name="indifferent" value={{squirrels.indifferent}}>
+            <label class="form-check-label" for="same-address">indifferent</label>
+          </div>
+          {%endif%}          
+
+          {% if squirrels.moans == True %}
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="same-address" name="moans" value={{squirrels.moans}} checked>
+            <label class="form-check-label" for="same-address">moans</label>
+          </div>
+           {%else%}
+           <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="same-address" name="moans" value={{squirrels.moans}} >
+            <label class="form-check-label" for="same-address">moans</label>
+          </div>
+          {%endif%}
+          
+           {% if squirrels.have_image == True %}
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="same-address" name="have_image" value={{squirrels.have_image}} checked>
+            <label class="form-check-label" for="same-address">have image<span class="text-muted"><br>(If you want this squirrel to be shown<br> in the front page, please check it on!)</span></label>
+          </div>
+          {%else%}
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="same-address" name="have_image" value={{squirrels.have_image}}>
+            <label class="form-check-label" for="same-address">have image<span class="text-muted"><br>(If you want this squirrel to be shown<br> in the front page, please check it on!)</span></label>
+          </div>
+          {%endif%}
+
+          <hr class="my-4">
+
+          <h4 class="mb-3">Shift</h4>
+
+          {% if squirrels.shift == PM %}
+          <div class="my-3">
+            <div class="form-check">
+              <input id="credit" name="shift" type="radio" class="form-check-input" value= "{{squirrels.shift}}" checked required>
+              <label class="form-check-label" for="credit">PM</label>
+            </div>
+            <div class="form-check">
+              <input id="debit" name="shift" type="radio" value = "{{squirrels.shift}}"class="form-check-input" required>
+              <label class="form-check-label" for="debit">AM</label>
+            </div>
+          </div>
+          {% else %}
+          <div class="my-3">
+            <div class="form-check">
+              <input id="credit" name="shift" type="radio" class="form-check-input" value= "{{squirrels.shift}}" required>
+              <label class="form-check-label" for="credit">PM</label>
+            </div>
+            <div class="form-check">
+              <input id="debit" name="shift" type="radio" value = "{{squirrels.shift}}"class="form-check-input" checked required>
+              <label class="form-check-label" for="debit">AM</label>
+            </div>
+          </div>
+          {% endif %}
+
+          <h4 class="mb-3">Age</h4>
+
+
+          {% if squirrels.age == Adult %}
+          <div class="my-3">
+            <div class="form-check">
+              <input id="credit" name="age" type="radio" class="form-check-input" value = "Adult" checked required>
+              <label class="form-check-label" for="credit">Adult</label>
+            </div>
+            <div class="form-check">
+              <input id="debit" name="age" type="radio" class="form-check-input" value = "Juvenile" required>
+              <label class="form-check-label" for="debit">Juvenile</label>
+            </div>
+          </div>
+          {% else %}
+          <div class="my-3">
+            <div class="form-check">
+              <input id="credit" name="age" type="radio" class="form-check-input" value = "Adult" required>
+              <label class="form-check-label" for="credit">Adult</label>
+            </div>
+            <div class="form-check">
+              <input id="debit" name="age" type="radio" class="form-check-input" value = "Juvenile" checked required>
+              <label class="form-check-label" for="debit">Juvenile</label>
+            </div>
+          </div>
+          {% endif %}
+          <h4 class="mb-3">Image of Squirrels</h4> 
+          {%if squirrels.have_image == True %}
+          <div class="col">
+            <div class="card shadow-sm">
+              <img class="bd-placeholder-img card-img-top" width="100%" height="225" 
+              role="img" aria-label="{{ squirrels.Unique_Squirrel_ID }}"
+              preserveAspectRatio="xMidYMid slice" focusable="false" 
+              src="{% get_media_prefix %}{{ squirrels.profile_image }}"></img>
+            </div>
+          </div>
+          <label for="profile_image" class="form-label">Change an another image</label>
+          <input class="profile_image" id="profile_image" name="profile_image" type="file" value="profile_image">
+          {% else %}
+          <label for="profile_image" class="form-label">You can upload an image for this squirrel!<span class="text-muted"><br>(Optional)</span></label>
+          <input class="profile_image" id="profile_image" name="profile_image" type="file" value="profile_image">
+          {% endif %}
+
+
+          <hr class="my-4">
+
+          <button class="w-100 btn btn-primary btn-lg" type="submit" value = "submit">Submit this squirrel</button>
+          <label class="form-label"><span class="text-muted">tips: Press submit with no response? Maybe you have something format mistakes, please check the form again!</span></label>
+
+        </form>
+      </div>
+    </div>
+  </main>
+
+<hr />
+
+<footer class="text-muted py-5">
+  <div class="container">
+    <hr />
+    <p class="float-end mb-1">
+      <a href="#">Back to top</a>
+    </p>
+    <p class="mb-1">made by 晚秋秋</p>
+    </div>
+</footer>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+
+<script src="{% static 'form-validation.js'%}"></script>
+
+
+
+
+      </script>
+  </body>
+</html>
