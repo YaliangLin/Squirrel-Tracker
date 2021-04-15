@@ -7,8 +7,7 @@ Project Group 49, Section 1
 ## UNIs
 UNIs: [yl4597, ml4554] 
 ## Server Link
-We use nginx-uwsgi-django to build the web. The link is:   
-http://squirrels.icu
+We use nginx-uwsgi-django to build the web. The link is: http://squirrels.icu
 ## Main Features
 [This video](https://b23.tv/3z3KC9) shows the main features of this project. Specific main features are also listed below:
 ### Management Commands
