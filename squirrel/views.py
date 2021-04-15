@@ -217,7 +217,7 @@ def mainmenu(request):
     return render(request,'htmls/mainbase.html',context)
 
 
-    def sightings(request):
+def sightings(request):
     squirrels = biaoge.objects.order_by('Unique_Squirrel_ID')
     context = {'squirrels':squirrels,}
     return render(request,'htmls/sightings.html',context)
