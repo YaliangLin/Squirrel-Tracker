@@ -16,6 +16,7 @@ It shows a map that displays the location of the squirrel sightings on an OpenSt
 ```
 It is located at: /map
 ```
+![Picture of Map](https://github.com/Miaoran-Lei/Squirrel-Tracker/blob/master/media/img/Completed_Map.PNG)
 #### View all sightings
 It lists all squirrel sightings with links to view each sighting.
 ```
