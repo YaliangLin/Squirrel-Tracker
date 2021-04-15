@@ -2,10 +2,13 @@
 
 ## Introduction
 This is the final project of the course E4501 Tools for Analytics. In order to keep track of the squirrels in the Central Park, this project imports the [2018 Central Park Squirrel Census](https://data.cityofnewyork.us/Environment/2018-Central-Park-Squirrel-Census-Squirrel-Data/vfnx-vebw) data and allow users to add, update, and view squirrel data. 
-## Authors
-Group49：Yaliang Lin, Miaoran Lei
+## Group Name and Section
+Project Group 49, Section 1
 ## UNIs
-yl4597, ml4554
+UNIs: [yl4597, ml4554] 
+## Server Link
+We use nginx-uwsgi-django to build the web. The link is:   
+http://squirrels.icu
 ## Main Features
 [This video](https://b23.tv/3z3KC9) shows the main features of this project. Specific main features are also listed below:
 ### Management Commands
@@ -42,6 +45,4 @@ It allows users to create a new sighting. It is located at: `/sightings/add`
 It shows general statistics of six attributes about the sightings. The statistics are visualized in this page. It is located at: `/sightings/stats`    
    
 ![Picture of Stats](https://github.com/Miaoran-Lei/Squirrel-Tracker/blob/master/media/img/Completed_Stats.PNG)
-## Server Link
-We use nginx-uwsgi-django to build the web. The link is:   
-http://squirrels.icu
+
