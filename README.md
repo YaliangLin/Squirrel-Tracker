@@ -9,7 +9,13 @@ yl4597, ml4554
 ## Main Features
 ### Management Commands
 Import: A command that can be used to import the data from the 2018 census file.   
+```
+python manage.py import /path/to/file.csv
+```
 Export: A command that can be used to export the data in CSV format.
+```
+python manage.py export /path/to/output.csv
+```
 ### Views
 #### View sightings on a map
 It shows a map that displays the location of the squirrel sightings on an OpenStreets map.
@@ -36,7 +42,7 @@ It is located at: /sightings/add
 ```
 ![Picture of Add](https://github.com/Miaoran-Lei/Squirrel-Tracker/blob/master/media/img/Completed_Add.PNG)
 #### View general statistics
-It shows general stats about the sightings. We also visualized the stats in this page.
+It shows general statistics of six attributes about the sightings. The statistics are visualized in this page.
 ```
 It is located at /sightings/stats
 ```
