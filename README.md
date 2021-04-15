@@ -38,5 +38,5 @@ It shows general statistics of six attributes about the sightings. The statistic
    
 ![Picture of Stats](https://github.com/Miaoran-Lei/Squirrel-Tracker/blob/master/media/img/Completed_Stats.PNG)
 ## Server Link
-We used nginx-uwsgi-django to build the web. The link is:   
+We use nginx-uwsgi-django to build the web. The link is:   
 http://squirrels.icu
