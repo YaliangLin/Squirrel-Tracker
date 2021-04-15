@@ -8,34 +8,35 @@ Group49：Yaliang Lin, Miaoran Lei
 yl4597, ml4554
 ## Main Features
 ### Management Commands
-Import: A command that can be used to import the data from the 2018 census file.   
-Export: A command that can be used to export the data in CSV format.
+Import: A command that can be used to import the data from the 2018 census file.    
+```
+python manage.py import /path/to/file.csv
+```
+Export: A command that can be used to export the data in CSV format.  
+```
+python manage.py export /path/to/output.csv
+```
 ### Views
 #### View sightings on a map
-It shows a map that displays the location of the squirrel sightings on an OpenStreets map.
-```
-It is located at: /map
-```
+It shows a map that displays the location of the squirrel sightings on an OpenStreets map. It is located at: `/map`   
+   
+![Picture of Map](https://github.com/Miaoran-Lei/Squirrel-Tracker/blob/master/media/img/Completed_Map.PNG)
 #### View all sightings
-It lists all squirrel sightings with links to view each sighting.
-```
-It is located at: /sightings
-```
+It lists all squirrel sightings with links to view each sighting. It is located at: `/sightings`   
+   
+![Picture of Sightings](https://github.com/Miaoran-Lei/Squirrel-Tracker/blob/master/media/img/Completed_Sightings.PNG)
 #### Update a particular sighting
-It allows users to update a particular sighting.
-```
-It is located at: /sightings/<unique-squirrel-id>
-```
+It allows users to update a particular sighting. It is located at: `/sightings/<unique-squirrel-id>`    
+     
+![Picture of Update](https://github.com/Miaoran-Lei/Squirrel-Tracker/blob/master/media/img/Completed_Update.PNG)
 #### Create a new sighting
-It allows users to create a new sighting.
-```
-It is located at: /sightings/add
-```
+It allows users to create a new sighting. It is located at: `/sightings/add`    
+   
+![Picture of Add](https://github.com/Miaoran-Lei/Squirrel-Tracker/blob/master/media/img/Completed_Add.PNG)
 #### View general statistics
-It shows general stats about the sightings. We also visualized the stats in this page.
-```
-It is located at /sightings/stats
-```
+It shows general statistics of six attributes about the sightings. The statistics are visualized in this page. It is located at: `/sightings/stats`    
+   
+![Picture of Stats](https://github.com/Miaoran-Lei/Squirrel-Tracker/blob/master/media/img/Completed_Stats.PNG)
 ## Server Link
-We used nginx-uwsgi-django to build the web:
+We use nginx-uwsgi-django to build the web. The link is:   
 http://squirrels.icu
