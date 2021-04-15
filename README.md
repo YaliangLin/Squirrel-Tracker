@@ -17,28 +17,28 @@ Export: A command that can be used to export the data in CSV format.
 ```
 python manage.py export /path/to/output.csv
 ```
-### [Home Page](http://squirrels.icu/)
+### Home Page
 It uses the image carousel for switching different pages. Several specific squirrel sightings are also shown in the home page as examples.   
 
 ![Gif of Home Page](https://github.com/Miaoran-Lei/Squirrel-Tracker/blob/master/media/img/Completed_Home_Page.gif)
 ### Views
-#### [View sightings on a map](http://squirrels.icu/map/)
+#### View sightings on a map
 It shows a map that displays the location of the squirrel sightings on an OpenStreets map. It is located at: `/map`   
    
 ![Picture of Map](https://github.com/Miaoran-Lei/Squirrel-Tracker/blob/master/media/img/Completed_Map.PNG)
-#### [View all sightings](http://squirrels.icu/sightings/)
+#### View all sightings
 It lists all squirrel sightings with links to view each sighting. It is located at: `/sightings`   
    
 ![Picture of Sightings](https://github.com/Miaoran-Lei/Squirrel-Tracker/blob/master/media/img/Completed_Sightings.PNG)
-#### [Update a particular sighting](http://squirrels.icu/sightings/)
+#### Update a particular sighting
 It allows users to update a particular sighting. It is located at: `/sightings/<unique-squirrel-id>`    
      
 ![Picture of Update](https://github.com/Miaoran-Lei/Squirrel-Tracker/blob/master/media/img/Completed_Update.PNG)
-#### [Create a new sighting](http://squirrels.icu/sightings/add/)
+#### Create a new sighting
 It allows users to create a new sighting. It is located at: `/sightings/add`    
    
 ![Picture of Add](https://github.com/Miaoran-Lei/Squirrel-Tracker/blob/master/media/img/Completed_Add.PNG)
-#### [View general statistics](http://squirrels.icu/sightings/stats/)
+#### View general statistics
 It shows general statistics of six attributes about the sightings. The statistics are visualized in this page. It is located at: `/sightings/stats`    
    
 ![Picture of Stats](https://github.com/Miaoran-Lei/Squirrel-Tracker/blob/master/media/img/Completed_Stats.PNG)
