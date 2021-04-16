@@ -7,7 +7,7 @@ Project Group 49, Section 1
 ## UNIs
 UNIs: [yl4597, ml4554] 
 ## Main Features
-[This video](https://b23.tv/3z3KC9) shows the main features of this project. Specific main features are also listed below:
+[This video](https://b23.tv/3z3KC9) https://b23.tv/3z3KC9 shows the main features of this project. Specific main features are also listed below:
 ### Management Commands
 Import: A command that can be used to import the data from the 2018 census file.    
 ```
